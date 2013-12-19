@@ -1,0 +1,7 @@
+{--
+test module
+--}
+
+
+
+main = undefined
