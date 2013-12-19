@@ -1,6 +1,6 @@
 http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Haskell
 
-``
+```
 long2tilex lon z = floor((lon + 180.0) / 360.0 * (2.0 ** z))
  
 lat2tiley lat z = floor((1.0 - log( tan(lat * pi/180.0) + 1.0 / cos(lat * pi/180.0)) / pi) / 2.0 * (2.0 ** z))
@@ -23,4 +23,4 @@ main = do
                 z = 17
                 x = long2tilex 2.2712 z
                 y = lat2tiley 48.8152 z
-``
+```
