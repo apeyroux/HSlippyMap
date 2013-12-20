@@ -1,10 +1,9 @@
--- Exemple use HSlippyMap
-
+-- HSlippyMap Exemple
 import HSlippyMap
 
-main = do
-  mapM (\z-> putStrLn $ show $ tileFromLatLong lat long z) [0..18]
+main =
+  mapM (print . show . tileFromLatLong lat long) [0..18]
   where
-    lat = 48.8152
-    long = 2.2712
-    z = 19
+      lat = 48.8152
+      long = 2.2712
+      z = 19

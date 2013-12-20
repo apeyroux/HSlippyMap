@@ -32,12 +32,12 @@ tileFromXY x y z = Tile lat lon x y z
         lat = tilex2long x z
         lon = tiley2lat y z
 
-long2tilex lon z = floor((lon + 180) / 360 * (2** fromInteger(z)::Long))
+long2tilex lon z = floor((lon + 180) / 360 * (2** fromInteger z::Long))
 
-lat2tiley lat z = floor((1.0 - log( tan(lat * pi/180.0) + 1.0 / cos(lat * pi/180.0)) / pi) / 2.0 * (2 ** fromInteger(z)::Long))
+lat2tiley lat z = floor((1.0 - log( tan(lat * pi/180.0) + 1.0 / cos(lat * pi/180.0)) / pi) / 2.0 * (2 ** fromInteger z::Long))
 
-tilex2long x z = (fromInteger(x)::Long) / (2.0 ** fromInteger(z)::Long) * 360.0 - 180
+tilex2long x z = (fromInteger x::Long) / (2.0 ** fromInteger z::Long) * 360.0 - 180
 
-tiley2lat y z = 180.0 / pi * atan(0.5 * (exp(n) - exp(-n)))
+tiley2lat y z = 180.0 / pi * atan(0.5 * (exp n - exp(-n)))
     where
-        n = pi - 2.0 * pi * (fromInteger(y)::Long) / (2.0 ** fromInteger(z)::Long)
+        n = pi - 2.0 * pi * (fromInteger y::Long) / (2.0 ** fromInteger z::Long)
