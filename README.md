@@ -1,6 +1,11 @@
 http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Haskell
 
 ```haskell
+mapM (\z-> putStrLn $ show $ tileFromLatLong 12.3 3.3 z) [0..18]
+```
+
+
+```haskell
 long2tilex lon z = floor((lon + 180.0) / 360.0 * (2.0 ** z))
  
 lat2tiley lat z = floor((1.0 - log( tan(lat * pi/180.0) + 1.0 / cos(lat * pi/180.0)) / pi) / 2.0 * (2.0 ** z))
