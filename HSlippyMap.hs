@@ -26,8 +26,8 @@ tileFromLatLong lat lon z = Tile lat lon x y z
         x = long2tilex lon z
         y = lat2tiley lat z
 
-tileFromGPS :: X -> Y -> ZLevel -> Tile
-tileFromGPS x y z = Tile lat lon x y z
+tileFromXY :: X -> Y -> ZLevel -> Tile
+tileFromXY x y z = Tile lat lon x y z
     where
         lat = tilex2long x z
         lon = tiley2lat y z
