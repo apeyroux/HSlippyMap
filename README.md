@@ -4,6 +4,28 @@ http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Haskell
 mapM (\z-> putStrLn $ show $ tileFromLatLong 12.3 3.3 z) [0..18]
 ```
 
+```
+http://tile.openstreetmap.org/0/0/0.png
+http://tile.openstreetmap.org/1/1/0.png
+http://tile.openstreetmap.org/2/2/1.png
+http://tile.openstreetmap.org/3/4/2.png
+http://tile.openstreetmap.org/4/8/5.png
+http://tile.openstreetmap.org/5/16/11.png
+http://tile.openstreetmap.org/6/32/22.png
+http://tile.openstreetmap.org/7/64/44.png
+http://tile.openstreetmap.org/8/129/88.png
+http://tile.openstreetmap.org/9/259/176.png
+http://tile.openstreetmap.org/10/518/352.png
+http://tile.openstreetmap.org/11/1036/704.png
+http://tile.openstreetmap.org/12/2073/1409.png
+http://tile.openstreetmap.org/13/4147/2819.png
+http://tile.openstreetmap.org/14/8295/5639.png
+http://tile.openstreetmap.org/15/16590/11278.png
+http://tile.openstreetmap.org/16/33181/22557.png
+http://tile.openstreetmap.org/17/66362/45115.png
+http://tile.openstreetmap.org/18/132725/90230.png
+```
+
 
 ```haskell
 long2tilex lon z = floor((lon + 180.0) / 360.0 * (2.0 ** z))
