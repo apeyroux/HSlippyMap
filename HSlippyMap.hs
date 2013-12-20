@@ -1,7 +1,7 @@
 module HSlippyMap (
     Tile,
     tileFromLatLong,
-    tileFromGPS
+    tileFromXY
 ) where
 
 type Lat = Float

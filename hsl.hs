@@ -2,7 +2,7 @@ import HSlippyMap
 
 main = do
   putStrLn $ show $ tileFromLatLong lat long z
-  putStrLn $ show $ tileFromGPS x y z
+  putStrLn $ show $ tileFromXY x y z
   where
       lat = 48.8152
       long = 2.2712
