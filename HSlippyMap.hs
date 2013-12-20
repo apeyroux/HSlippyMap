@@ -6,15 +6,15 @@ module HSlippyMap (
 
 type Lat = Float
 type Long = Float
-type GpsX = Integer
-type GpsY = Integer
+type X = Integer
+type Y = Integer
 type ZLevel = Integer
 
 data Tile = Tile {
   lat :: Lat,
   long :: Long,
-  x :: GpsX,
-  y :: GpsY,
+  x :: X,
+  y :: Y,
   z :: ZLevel }
 
 instance Show Tile where
@@ -26,7 +26,7 @@ tileFromLatLong lat lon z = Tile lat lon x y z
         x = long2tilex lon z
         y = lat2tiley lat z
 
-tileFromGPS :: GpsX -> GpsY -> ZLevel -> Tile
+tileFromGPS :: X -> Y -> ZLevel -> Tile
 tileFromGPS x y z = Tile lat lon x y z
     where
         lat = tilex2long x z
