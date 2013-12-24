@@ -1,4 +1,46 @@
+Algo
+----
+
 http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Haskell
+
+Exemple
+-------
+
+Gist : https://gist.github.com/j4/8117832
+
+```haskell
+import HSlippyMap
+
+main = do                                                                             
+  mapM (\(x,y) -> mapM (\y'-> print $ "http://openstreetmap.asi.mi/" ++ show z ++ "/" ++ show x ++ "/" ++ show y' ++ ".png") y) [(x,\
+[(minimum [tymin, tymax])..(maximum [tymin,tymax])]) | x <- [(minimum [txmin, txmax])..(maximum [txmin, txmax])]]
+  where
+      min = tileFromLatLong 49.13 3.05 8
+      max = tileFromLatLong 48.57 1.66 8
+      txmin = tx min
+      txmax = tx max
+      tymax = ty min
+      tymin = ty max
+      z = tz min
+̀``
+
+Result :
+
+```
+ja@x220:~/codaz/HSlippyMap$ ./hsl | xargs wget -nv -O NULL --output-file osm.asi.log 
+ja@x220:~/codaz/HSlippyMap$ cat osm.asi.log 
+2013-12-24 22:04:46 URL:http://tile.openstreetmap.org/8/129/87.png [37753/37753] -> "NULL" [1]
+2013-12-24 22:04:46 URL:http://tile.openstreetmap.org/8/129/88.png [36997/36997] -> "NULL" [1]
+2013-12-24 22:04:46 URL:http://tile.openstreetmap.org/8/130/87.png [36749/36749] -> "NULL" [1]
+2013-12-24 22:04:47 URL:http://tile.openstreetmap.org/8/130/88.png [35550/35550] -> "NULL" [1]
+FINISHED --2013-12-24 22:04:47--
+Total wall clock time: 0,7s
+Downloaded: 4 files, 144K in 0,4s (364 KB/s)
+```
+
+
+Other exemple
+-------------
 
 ```haskell
 mapM (\z-> putStrLn $ show $ tileFromLatLong 12.3 3.3 z) [0..18]
