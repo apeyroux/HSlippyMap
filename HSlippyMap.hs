@@ -16,6 +16,7 @@ map (\(x,y) -> map (\y'-> "http//http://tile.openstreetmap.org/" ++ show zlevel 
 
 module HSlippyMap (
     Tile, tlat, tlong, tx, ty, tz,
+    tilesFromBBox,
     tileFromLatLong,
     tileFromXY
 ) where
