@@ -3,6 +3,26 @@ Algo
 
 http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Haskell
 
+GHCI
+----
+
+```
+ja@x220:~/codaz/HSlippyMap$ ghci
+GHCi, version 7.6.3: http://www.haskell.org/ghc/  :? for help
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+[1 of 1] Compiling HSlippyMap       ( HSlippyMap.hs, interpreted )
+Ok, modules loaded: HSlippyMap.
+*HSlippyMap> :load HSlippyMap
+*HSlippyMap> let max = tileFromLatLong 48.9031 2.5214 12
+*HSlippyMap> let min = tileFromLatLong 48.8146 2.1732 12
+*HSlippyMap> :t max
+max :: Tile
+*HSlippyMap> tilesFromBBox min max
+[http://tile.openstreetmap.org/12/2072/1409.png,http://tile.openstreetmap.org/12/2073/1409.png,http://tile.openstreetmap.org/12/2074/1409.png,http://tile.openstreetmap.org/12/2075/1409.png,http://tile.openstreetmap.org/12/2076/1409.png]
+```
+
 Exemple
 -------
 
@@ -22,13 +42,13 @@ main = do
       tymax = ty min
       tymin = ty max
       z = tz min
-
-̀`
+```
 
 Result :
 
-$ ./hsl | xargs wget -nv -O NULL --output-file osm.asi.log 
-$ cat osm.asi.log 
+```bash
+ja@x220 ~ $ ./hsl | xargs wget -nv -O NULL --output-file osm.asi.log 
+ja@x220 ~ $ cat osm.asi.log 
 2013-12-24 22:04:46 URL:http://tile.openstreetmap.org/8/129/87.png [37753/37753] -> "NULL" [1]
 2013-12-24 22:04:46 URL:http://tile.openstreetmap.org/8/129/88.png [36997/36997] -> "NULL" [1]
 2013-12-24 22:04:46 URL:http://tile.openstreetmap.org/8/130/87.png [36749/36749] -> "NULL" [1]
@@ -36,7 +56,7 @@ $ cat osm.asi.log
 FINISHED --2013-12-24 22:04:47--
 Total wall clock time: 0,7s
 Downloaded: 4 files, 144K in 0,4s (364 KB/s)
-
+```
 
 Other exemple
 -------------
