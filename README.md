@@ -26,8 +26,6 @@ main = do
 
 Result :
 
-
-```bash
 $ ./hsl | xargs wget -nv -O NULL --output-file osm.asi.log 
 $ cat osm.asi.log 
 2013-12-24 22:04:46 URL:http://tile.openstreetmap.org/8/129/87.png [37753/37753] -> "NULL" [1]
@@ -37,7 +35,6 @@ $ cat osm.asi.log
 FINISHED --2013-12-24 22:04:47--
 Total wall clock time: 0,7s
 Downloaded: 4 files, 144K in 0,4s (364 KB/s)
-```
 
 
 Other exemple
