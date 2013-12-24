@@ -28,8 +28,8 @@ Result :
 
 
 ```bash
-ja@x220:~/codaz/HSlippyMap$ ./hsl | xargs wget -nv -O NULL --output-file osm.asi.log 
-ja@x220:~/codaz/HSlippyMap$ cat osm.asi.log 
+$ ./hsl | xargs wget -nv -O NULL --output-file osm.asi.log 
+$ cat osm.asi.log 
 2013-12-24 22:04:46 URL:http://tile.openstreetmap.org/8/129/87.png [37753/37753] -> "NULL" [1]
 2013-12-24 22:04:46 URL:http://tile.openstreetmap.org/8/129/88.png [36997/36997] -> "NULL" [1]
 2013-12-24 22:04:46 URL:http://tile.openstreetmap.org/8/130/87.png [36749/36749] -> "NULL" [1]
