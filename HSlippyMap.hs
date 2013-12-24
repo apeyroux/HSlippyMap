@@ -32,7 +32,7 @@ data Tile = Tile {
   tlong :: Long,
   tx :: X,
   ty :: Y,
-  tz :: ZLevel } deriving (Read, Eq)
+  tz :: ZLevel } 
 
 instance Show Tile where
   show (Tile lat long x y z) = "http://tile.openstreetmap.org/" ++ show z ++ "/" ++ show x ++ "/" ++ show y ++ ".png"
@@ -43,7 +43,7 @@ tilesFromBBox min max = concat $ map (\(x,y) -> map (\y'-> Tile (tlat min) (tlon
     where
       txmax = tx max
       txmin = tx min
-      tymax = ty min
+      tymax = ty max
       tymin = ty min     
       z = tz min
 
