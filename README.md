@@ -17,6 +17,8 @@ Ok, modules loaded: HSlippyMap.
 *HSlippyMap> :load HSlippyMap
 *HSlippyMap> let max = tileFromLatLong 48.9031 2.5214 12
 *HSlippyMap> let min = tileFromLatLong 48.8146 2.1732 12
+*HSlippyMap> :t max
+max :: Tile
 *HSlippyMap> tilesFromBBox min max
 [http://tile.openstreetmap.org/12/2072/1409.png,http://tile.openstreetmap.org/12/2073/1409.png,http://tile.openstreetmap.org/12/2074/1409.png,http://tile.openstreetmap.org/12/2075/1409.png,http://tile.openstreetmap.org/12/2076/1409.png]
 ```
