@@ -1,5 +1,21 @@
+{--
+let tl=tileFromLatLong 48.90 1.80 10
+let tr=tileFromLatLong 48.90 2.62 10
+let br=tileFromLatLong 48.70 2.70 10
+let bl=tileFromLatLong 48.70 2.80 10
+
+let max = tileFromLatLong 48.9031 2.5214 10
+let min = tileFromLatLong 48.8146 2.1732 10
+
+ [(x,[11266..11278]) | x <- [16581..16613]]
+
+map (\(x,y) -> map (\y'-> "/15/" ++ show x ++ "/" ++ show y' ++ ".png") y) [(x,[11266..11278]) | x <- [16581..16613]]
+map (\(x,y) -> map (\y'-> "http//http://tile.openstreetmap.org/" ++ show zlevel ++ "/" ++ show x ++ "/" ++ show y' ++ ".png") y) [(x,[11266..11278]) | x <- [16581..16613]]
+
+--}
+
 module HSlippyMap (
-    Tile,
+    Tile, tlat, tlong, tx, ty, tz,
     tileFromLatLong,
     tileFromXY
 ) where
@@ -11,14 +27,24 @@ type Y = Integer
 type ZLevel = Integer
 
 data Tile = Tile {
-  lat :: Lat,
-  long :: Long,
-  x :: X,
-  y :: Y,
-  z :: ZLevel }
+  tlat :: Lat,
+  tlong :: Long,
+  tx :: X,
+  ty :: Y,
+  tz :: ZLevel } deriving (Read, Eq)
 
 instance Show Tile where
   show (Tile lat long x y z) = "http://tile.openstreetmap.org/" ++ show z ++ "/" ++ show x ++ "/" ++ show y ++ ".png"
+
+-- ajouter un test si z1 == z2 puis maybe
+tilesFromBBox :: Tile -> Tile -> [Tile]
+tilesFromBBox min max = concat $ map (\(x,y) -> map (\y'-> Tile (tlat min) (tlong min) x y' z) y) [(x,[(minimum [tymin, tymax])..(maximum [tymin,tymax])]) | x <- [(minimum [txmin, txmax])..(maximum [txmin, txmax])]]
+    where
+      txmax = tx max
+      txmin = tx min
+      tymax = ty min
+      tymin = ty min     
+      z = tz min
 
 tileFromLatLong :: Lat -> Long -> ZLevel -> Tile
 tileFromLatLong lat lon z = Tile lat lon x y z
