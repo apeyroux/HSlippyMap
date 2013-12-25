@@ -11,7 +11,9 @@ mapM (\(x,y) -> mapM (\y'-> print $ "http://tile.openstreetmap.org/" ++ show z +
 
 main = do 
   --mapM (print . show . tileFromLatLong lat long) [0..18]
-  mapM (\(x,y) -> mapM (\y'-> print $ "http://tile.openstreetmap.org/" ++ show z ++ "/" ++ show x ++ "/" ++ show y' ++ ".png") y) [(x,[(minimum [tymin, tymax])..(maximum [tymin,tymax])]) | x <- [(minimum [txmin, txmax])..(maximum [txmin, txmax])]]
+  mapM (\(x,y) -> mapM (\y'-> 
+      print $ "http://tile.openstreetmap.org/" ++ show z ++ "/" ++ show x ++ "/" ++ show y' ++ ".png") y) 
+      [(x,[(minimum [tymin, tymax])..(maximum [tymin,tymax])]) | x <- [(minimum [txmin, txmax])..(maximum [txmin, txmax])]]
   where
       min = tileFromLatLong 49.13 3.05 8
       max = tileFromLatLong (-48.57) 1.66 8
