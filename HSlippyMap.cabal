@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                HSlippyMap
-version:             2.6
+version:             3.0
 synopsis:            OpenStreetMap Slippy Map
 -- description:
 homepage:            https://github.com/apeyroux/HSlippyMap
@@ -20,4 +20,4 @@ library
   exposed-modules:   HSlippyMap
   default-language:  Haskell2010
   -- other-modules:
-  build-depends:     base ==4.*
+  build-depends:     base >=4.6 && <5

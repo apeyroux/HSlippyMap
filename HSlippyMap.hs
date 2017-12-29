@@ -21,16 +21,17 @@ data Tile = Tile {
 instance Show Tile where
   show (Tile lat long x y z) = "http://tile.openstreetmap.org/" ++ show z ++ "/" ++ show x ++ "/" ++ show y ++ ".png"
 
--- ajouter un test si z1 == z2 puis maybe
-tilesFromBBox :: Tile -> Tile -> [Tile]
-tilesFromBBox min max = concat $ map (\(x,y) -> map (\y'-> Tile (tlat min) (tlong min) x y' z) y)
-    [(x,[(minimum [tymin, tymax])..(maximum [tymin,tymax])]) | x <- [(minimum [txmin, txmax])..(maximum [txmin, txmax])]]
-    where
-      txmax = tx max
-      txmin = tx min
-      tymax = ty max
-      tymin = ty min
-      z = tz min
+-- if not same z-level == Nothing
+tilesFromBBox :: Tile -> Tile -> Maybe [Tile]
+tilesFromBBox min max |  (tz min) == (tz max) = Just $ concat $ map (\(x,y) -> map (\y'-> Tile (tlat min) (tlong min) x y' z) y)
+                         [(x,[(minimum [tymin, tymax])..(maximum [tymin,tymax])]) | x <- [(minimum [txmin, txmax])..(maximum [txmin, txmax])]]
+                      | otherwise = Nothing
+  where
+    txmax = tx max
+    txmin = tx min
+    tymax = ty max
+    tymin = ty min
+    z = tz min
 
 tileFromLatLong :: Lat -> Long -> ZLevel -> Tile
 tileFromLatLong lat lon z = Tile lat lon x y z
