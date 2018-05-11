@@ -1,8 +1,10 @@
 module HSlippyMap (
-    Tile, tlat, tlong, tx, ty, tz,
-    tilesFromBBox,
-    tileFromLatLong,
-    tileFromXY
+  Tile (..),
+  Lat, Long,
+  X, Y, ZLevel,
+  tilesFromBBox,
+  tileFromLatLong,
+  tileFromXY
 ) where
 
 type Lat = Float

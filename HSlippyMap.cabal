@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                HSlippyMap
-version:             3.0
+version:             3.0.1
 synopsis:            OpenStreetMap Slippy Map
 -- description:
 homepage:            https://github.com/apeyroux/HSlippyMap
